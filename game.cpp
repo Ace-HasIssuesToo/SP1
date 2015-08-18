@@ -17,6 +17,7 @@ char level[26][71];
 int next=1;
 void level1();
 void level2();
+void level3();
 
 
 // Game specific variables here
@@ -85,6 +86,7 @@ void update(double dt)
 	{
 	case 1:level1();break;
 	case 2:level2();break;
+	case 3:level3();break;
 	}
     processUserInput(); // checks if you should change states or do something else with the game, e.g. pause, exit
     moveCharacter();    // moves the character, collision detection, physics, etc
@@ -184,6 +186,7 @@ void moveCharacter()
 		switch(next)
 		{
 			case 2: charLocation.X = 2; charLocation.Y = 23; charLocation2.X = 68; charLocation2.Y = 23;break;
+			case 3: charLocation.X = 2; charLocation.Y = 2; charLocation2.X = 68; charLocation2.Y = 2;break;
 		}
 	}
 }
@@ -319,12 +322,11 @@ void level2()
 		}
 	}
 }
-
 void level3()
 {
-	char level3[26][71]={
+
+	char level3[24][71]={
 		{" #####################################################################"}
-	,	{" #                                                                   #"}
 	,	{" #                                                                   #"}
 	,	{" #                                                                   #"}
 	,	{" #                                                                   #"}
@@ -349,7 +351,7 @@ void level3()
 	,	{" #                           #     @     #                           #"}
 	,	{" #####################################################################"}};
 
-	for(int i=0;i<26;++i)
+	for(int i=0;i<24;++i)
 	{
 		for(int c=0;c<71;++c)
 		{
