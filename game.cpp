@@ -183,7 +183,7 @@ void moveCharacter()
 		next++;
 		switch(next)
 		{
-			case 2: charLocation.X = 2; charLocation.Y = 24; charLocation2.X = 68; charLocation2.Y = 24;break;
+			case 2: charLocation.X = 2; charLocation.Y = 23; charLocation2.X = 68; charLocation2.Y = 23;break;
 		}
 	}
 }
@@ -206,6 +206,13 @@ void renderMap()
         0x1A, 0x2B, 0x3C, 0x4D, 0x5E, 0x6F,
         0xA1, 0xB2, 0xC3, 0xD4, 0xE5, 0xF6
     };
+	for (unsigned int i=0;i<24;++i)
+	{
+		for (unsigned int c=0;c<71;++c)
+		{
+			console.writeToBuffer(c,i+1,level[i][c]);
+		}
+	}
 }
 
 void renderCharacter()
@@ -235,19 +242,13 @@ void renderFramerate()
 }
 void renderToScreen()
 {
-	for (int i=0;i<26;++i)
-	{
-		for (int a=0;a<71;++a)
-		{
-			console.writeToBuffer((0,0),level[i][a],0x0C);
-		}
-	}
     // Writes the buffer to the console, hence you will see what you have written
+    console.flushBufferToConsole();
 }
 
 void level1()
 {
-	char level1[26][71]={
+	char level1[24][71]={
 		{" #####################################################################"}
 	,	{" #                        #        @        #                        #"}
 	,	{" #                        #                 #                        #"}
@@ -271,10 +272,9 @@ void level1()
 	,	{" #                                                                   #"}
 	,	{" #                                                                   #"}
 	,	{" #                                                                   #"}
-	,	{" #                                                                   #"}
 	,	{" #####################################################################"}};
 
-	for(int i=0;i<26;++i)
+	for(int i=0;i<24;++i)
 	{
 		for(int c=0;c<71;++c)
 		{
@@ -285,9 +285,8 @@ void level1()
 
 void level2()
 {
-	char level2[26][71]={
+	char level2[24][71]={
 		{" #####################################################################"}
-	,	{" #                                                                   #"}
 	,	{" #                                                                   #"}
 	,	{" #                                                                   #"}
 	,	{" #                                                                   #"}
@@ -312,7 +311,7 @@ void level2()
 	,	{" #                           #     @     #                           #"}
 	,	{" #####################################################################"}};
 
-	for(int i=0;i<26;++i)
+	for(int i=0;i<24;++i)
 	{
 		for(int c=0;c<71;++c)
 		{
